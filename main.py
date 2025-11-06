@@ -12,7 +12,7 @@ def available():
         print(f'Title: {book['title']}')
         print(f'Author: {book['author']}')
         print('') #to separate the books.
-available()
+#available()
 
     
 
@@ -29,34 +29,50 @@ def search_list():
         #in the if condition I checked is in the book for loop, I understood why we need to for loop in this by looking it up.
         if book['author'].title() == search or book['title'].title() == search:
             print(f"Here are some results that we found matching your input: \n Author: {book['author']} and Title: {book['title'] }")
-    if book['author'].title() != search or book['title'].title() != search:
-        print("This title or author is not in our library.")
-search_list()
+        if book['author'].title() != search or book['title'].title() != search:
+            print("This title or author is not in our library.")
+#search_list()
         
 
 
 
 # -------- Level 3 --------
 # TODO: Create a function to checkout a book by ID
-# If the book is available:
-for book in library_books:
-    id_search = input("Please enter the book ID: ")
-    if id_search == book['id']:
-        print(book['id'])
-    if id_search != book['id']:
-        print("Not a valid ID.")
-    
+# If the book is available:   
 #   - Mark it unavailable
 #   - Set the due_date to 2 weeks from today
 #   - Increment the checkouts counter
 # If it is not available:
 #   - Print a message saying it's already checked out
+def id_checkout():
+    user = input("Enter an Id to checkout: ").upper()
+    for book in library_books:
+        if user == book['id']:
+            print("Processing...")
+            if book['available'] == False:
+                print("The book is Not Available")
+            if book['available'] == True:
+                print("The book is Available.")
+                today = datetime.today()
+                twoWeeks = timedelta(weeks=2)
+                print(f'Please return this book before {today+twoWeeks}')
+                break
+    if user!= book['id']:
+                print("Invalid Book ID.")
+            
+            
+            #code that checks in the book if book that the user chose is available, if so return true, if not return false
+            #book id belongs to that book, then it has to check the cook, and then check the availability of that book
+id_checkout()
+    
+
 
 
 # -------- Level 4 --------
 # TODO: Create a function to return a book by ID
 # Set its availability to True and clear the due_date
-
+def return_books():
+    input("Please enter the ")
 # TODO: Create a function to list all overdue books
 # A book is overdue if its due_date is before today AND it is still checked out
 
@@ -64,6 +80,7 @@ for book in library_books:
 # -------- Level 5 --------
 # TODO: Convert your data into a Book class with methods like checkout() and return_book()
 # TODO: Add a simple menu that allows the user to choose different options like view, search, checkout, return, etc.
+
 
 # -------- Optional Advanced Features --------
 # You can implement these to move into Tier 4:
