@@ -93,7 +93,7 @@ def overdue_books():
 # TODO: Create a function to return a book by ID                  (COMPLETED)
 # Set its availability to True and clear the due_date
 
-#The return function is similar to the checkout function
+#The return function is similar to the checkout function, so i copied some of the code from the checkout function into this function.
 
 def return_books():
     return_input = input("Enter Book Id to Return: ").upper()
@@ -132,6 +132,8 @@ def return_books():
 # - Anything else you want to build on top of the system!
 
 while True:
+    #extra to make the library organized, used this code from my Chatbot project and replaced the functions from the chatbot with the functions that are in this main.py file.
+    print("-------- ~ LIBRARY MANAGER ~ ---------")
     print("What option would you like: \n * 1.) Book Title, Author, and Id \n * 2.) Search for Title or Author \n * 3.) Checkout Books \n * 4.) Return Books \n * 5.)Exit")
     option = input("Enter option from 1-5: ")
     if option == '1':
